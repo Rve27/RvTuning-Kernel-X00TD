@@ -3,31 +3,10 @@
 KERNELDIR=$(pwd)
 
 # Identity
-CODENAME=Hayzel
-KERNELNAME=TheOneMemory
+CODENAME=Alpha
+KERNELNAME=RvTuning
 VARIANT=HMP
 VERSION=CLO
-
-TG_TOPIC=0
-BOT_BUILD_URL="https://api.telegram.org/bot$TG_TOKEN/sendDocument"
-
-tg_post_build()
-{
-	if [ $TG_TOPIC = 1 ]
-	then
-	    curl -F document=@"$1" "$BOT_BUILD_URL" \
-	    -F chat_id="$TG_CHAT_ID"  \
-	    -F "disable_web_page_preview=true" \
-	    -F "parse_mode=Markdown" \
-	    -F caption="$2"
-	else
-	    curl -F document=@"$1" "$BOT_BUILD_URL" \
-	    -F chat_id="$TG_CHAT_ID"  \
-	    -F "disable_web_page_preview=true" \
-	    -F "parse_mode=Markdown" \
-	    -F caption="$2"
-	fi
-}
 
 if ! [ -d "$KERNELDIR/ew" ]; then
 if ! git clone --depth=1 https://gitlab.com/Tiktodz/electrowizard-clang.git -b 16 --single-branch ew; then
@@ -54,8 +33,8 @@ KERVER=$(make kernelversion)
 export PATH="$KERNELDIR/ew/bin:$PATH"
 export ARCH=arm64
 export SUBARCH=arm64
-export KBUILD_BUILD_USER="queen"
-export KBUILD_BUILD_HOST=$(source /etc/os-release && echo "${NAME}")
+export KBUILD_BUILD_USER="RvTuning"
+export KBUILD_BUILD_HOST="Rve27"
 export KBUILD_COMPILER_STRING="$($KERNELDIR/ew/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
 
 # Speed up build process
@@ -135,5 +114,3 @@ ZIP_FINAL="$ZIP_FINAL-signed"
 
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
-
-tg_post_build "$ZIP_FINAL.zip" "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s)"
