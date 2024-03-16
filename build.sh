@@ -15,7 +15,7 @@ fi
 fi
 
 if ! [ -d "$KERNELDIR/AnyKernel3" ]; then
-if ! git clone --depth=1 https://github.com/Tiktodz/AnyKernel3 -b hmp-old AnyKernel3; then
+if ! git clone --depth=1 https://github.com/Rve27/AnyKernel3.git -b hmp-old AnyKernel3; then
 exit 1
 fi
 fi
