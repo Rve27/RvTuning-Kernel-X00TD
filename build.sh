@@ -81,7 +81,7 @@ sed -i "s/kernel.string=.*/kernel.string=$KERNELNAME/g" anykernel.sh
 sed -i "s/kernel.type=.*/kernel.type=$VARIANT/g" anykernel.sh
 sed -i "s/kernel.for=.*/kernel.for=$CODENAME/g" anykernel.sh
 sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
-sed -i "s/kernel.made=.*/kernel.made=dotkit @fakedotkit/g" anykernel.sh
+sed -i "s/kernel.made=.*/kernel.made=Rve27/g" anykernel.sh
 sed -i "s/kernel.version=.*/kernel.version=$KERVER/g" anykernel.sh
 sed -i "s/message.word=.*/message.word=Appreciate your efforts for choosing TheOneMemory kernel./g" anykernel.sh
 sed -i "s/build.date=.*/build.date=$DATE/g" anykernel.sh
@@ -96,7 +96,7 @@ sed -i "s/X00TD=.*/X00TD=1/g" anykernel.sh
 cd META-INF/com/google/android
 sed -i "s/KNAME/$KERNELNAME/g" aroma-config
 sed -i "s/KVER/$KERVER/g" aroma-config
-sed -i "s/KAUTHOR/dotkit @fakedotkit/g" aroma-config
+sed -i "s/KAUTHOR/Rve27/g" aroma-config
 sed -i "s/KDEVICE/Zenfone Max Pro M1/g" aroma-config
 sed -i "s/KBDATE/$DATE/g" aroma-config
 sed -i "s/KVARIANT/$VARIANT/g" aroma-config
